@@ -3,6 +3,7 @@
   --background-slogan: #2f303a;
   --background-slogan-gradient: rgba(47, 48, 58, 0.4);
   --background-comand: #f5f4fa;
+  --background-label: rgba(47, 48, 58, 0.8);
   --color-logo: #000000;
   --color-general: #212121;
   --color-border-header: #ECECEC;
@@ -11,6 +12,7 @@
   --color-slogan: #ffffff;
   --color-button: #f5f4fa;
   --color-button-activ: #188ce8;
+  --color-label: #FFFFFF;
   --color-icon-footer: rgba(255, 255, 255, 0.1);
   --color-border-index: #f5f4fa;
   --color-border-portfolio: #eeeeee;
@@ -31,6 +33,12 @@ body {
   background-color: var(--background-general);
   color: var(--color-general);
 }
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .header {
   border-bottom: 1px solid var(--color-border-header)
 }
@@ -268,6 +276,31 @@ body {
 .work .item {
   flex-basis: calc(100% / 3-30px);
   margin-left: 30px;
+}
+.label-thumb {
+  position: relative;
+  
+}
+.label {
+  margin: 0;
+  padding: 0;
+  width: 370px;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+
+}
+.label-text {
+  background-color: var(--background-label);
+  color: var(--color-label);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 27px 0 27px 0;
+  margin: 0;
 }
 
 /* comand */
