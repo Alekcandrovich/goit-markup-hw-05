@@ -49,11 +49,11 @@
     </header>
     <main>
 <!--content-->
-      <div class="overlay">
+      <div class="overlay-ind">
         <section class="section slogan">
           <div class="container">
             <h1 class="slogan-titel">Ефективні рішення для<br />вашого бізнесу</h1>
-            <button type="button" class="button-ind">Замовити послугу</button>
+            <button data-modal-open type="button" class="button-ind">Замовити послугу</button>
           </div>
         </section>
       </div>
@@ -128,7 +128,7 @@
               </div> 
             </li>
           </ul>
-        </div>  
+        </div>
       </section>
       <section class="section background-comand">
         <div class="container">
@@ -337,5 +337,20 @@
         </ul>
       </div>
     </footer>
+<!-- modal window -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <ul class="clear">
+          <li class="close-posicion">
+            <button data-modal-close type="button" class="close-modal">
+              <svg class="icon-modal">
+                <use href="./images/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>  
   </body>
 </html>
