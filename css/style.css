@@ -6,24 +6,27 @@
   --background-label: rgba(47, 48, 58, 0.8);
   --color-logo: #000000;
   --color-general: #212121;
-  --color-border-header: #ECECEC;
+  --color-border-header: #ececec;
   --color-last: #757575;
   --color-link: #2196f3;
   --color-slogan: #ffffff;
   --color-button: #f5f4fa;
   --color-button-activ: #188ce8;
-  --color-label: #FFFFFF;
+  --color-label: #ffffff;
   --color-icon-footer: rgba(255, 255, 255, 0.1);
   --color-border-index: #f5f4fa;
   --color-border-portfolio: #eeeeee;
-  --color-border-klient: #AFB1B8;
+  --color-border-klient: #afb1b8;
+  --color-overlay-portfolio: rgba(33, 150, 243, 0.9);
   --color-address-finish: rgba(255, 255, 255, 0.6);
   --color-shadow-ind: 0px 4px 4px rgba(0, 0, 0, 0.15);
   --color-comand-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-                         0px 2px 1px rgba(0, 0, 0, 0.2);
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   --color-shadow-port: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-                       0px 2px 2px rgba(0, 0, 0, 0.12);
+    0px 2px 2px rgba(0, 0, 0, 0.12);
   --color-backdrop: rgba(0, 0, 0, 0.2);
+  --transition-duration: 250ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -39,15 +42,9 @@ img {
   width: 100%;
   height: auto;
 }
-:hover, :focus {
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0;
-
-}
 
 .header {
-  border-bottom: 1px solid var(--color-border-header)
+  border-bottom: 1px solid var(--color-border-header);
 }
 
 /* logotip */
@@ -69,7 +66,7 @@ img {
   margin-right: -93px;
   color: var(--color-slogan);
 }
-/* flex */
+/* nav flex */
 .nav {
   display: flex;
   align-items: center;
@@ -104,6 +101,8 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
+  transition: color var(--transition-timing) var(--transition-duration);
+
   color: var(--color-general);
 }
 .nav .link:hover,
@@ -111,7 +110,19 @@ img {
   color: var(--color-link);
 }
 .nav .link.current {
+  position: relative;
   color: var(--color-link);
+}
+.nav .link.current::after {
+  content: '';
+  position: absolute;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--color-link);
+  margin-top: 28px;
 }
 .contact {
   display: flex;
@@ -179,16 +190,18 @@ img {
   border: none;
   padding: 10px 32px;
 
-  background-color: var(--color-link);
-  color: var(--color-slogan);
-  box-shadow: var(--color-shadow-ind);
-
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
   text-align: center;
+
+  background-color: var(--color-link);
+  color: var(--color-slogan);
+  box-shadow: var(--color-shadow-ind);
+
+  transition: background-color var(--transition-timing) var(--transition-duration);
 }
 .button-ind:hover,
 .button-ind:focus {
@@ -198,9 +211,6 @@ img {
   border-radius: 4px;
   border: none;
 
-  background-color: var(--color-button);
-  color: var(--color-general);
-
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
@@ -208,6 +218,14 @@ img {
   line-height: 1.63;
   text-align: center;
   letter-spacing: 0.03em;
+
+  background-color: var(--color-button);
+  color: var(--color-general);
+  box-shadow: none;
+
+  transition: background-color var(--transition-timing) var(--transition-duration),
+    color var(--transition-timing) var(--transition-duration),
+    box-shadow var(--transition-timing) var(--transition-duration);
 }
 .button-port:hover,
 .button-port:focus {
@@ -295,7 +313,6 @@ img {
   background-color: var(--background-label);
   position: absolute;
   bottom: 0;
-
 }
 .label-text {
   color: var(--color-label);
@@ -305,7 +322,7 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 27px 0 27px 0;
+  padding: 27px 0;
   margin: 0;
 }
 
@@ -367,8 +384,12 @@ img {
   height: 44px;
   padding: 0;
   margin: 0 auto;
-  
+
+  background-color: var(--background-general);
   color: var(--color-border-klient);
+
+  transition: background-color var(--transition-timing) var(--transition-duration),
+    color var(--transition-timing) var(--transition-duration);
 }
 .icon-card {
   width: 20px;
@@ -389,7 +410,7 @@ img {
   margin: 0;
   padding: 0;
   list-style: none;
- }
+}
 .klient-line {
   padding: 0;
   border: none;
@@ -400,6 +421,9 @@ img {
   border: 1px solid var(--color-border-klient);
   border-radius: 4px;
   fill: var(--color-border-klient);
+
+  transition: fill var(--transition-timing) var(--transition-duration),
+    border var(--transition-timing) var(--transition-duration);
 }
 .klient-icon:hover,
 .klient-line:focus {
@@ -435,6 +459,8 @@ img {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+
+  transition: color var(--transition-timing) var(--transition-duration);
 }
 .address .link:hover,
 .address .link:focus {
@@ -477,9 +503,11 @@ img {
   height: 44px;
   padding: 0;
   margin: 0 auto;
-  
+
   color: var(--color-slogan);
   background-color: var(--color-icon-footer);
+  transition: background-color var(--transition-timing) var(--transition-duration),
+    color var(--transition-timing) var(--transition-duration);
 }
 .icon-footer {
   width: 20px;
@@ -515,7 +543,7 @@ img {
 .content-element:hover,
 .content-element:focus {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-              0px 2px 1px rgba(0, 0, 0, 0.2);
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .card-port {
   padding: 20px 24px;
@@ -535,29 +563,33 @@ img {
   color: var(--color-last);
 }
 
-/* overlay */
+/* overlay portfolio*/
 .overlay-thumb {
   position: relative;
 }
 .overlay-port {
   position: absolute;
-  bottom: 0;
-  width: 370px;
-  height: 70px;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--background-label);
+  transform: translateY(100px);
+  background-color: var(--color-overlay-portfolio);
 }
 .overlay-text {
-  color: var(--color-label);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  text-align: center;
+  font-size: 18px;
+  line-height: 1.556;
   letter-spacing: 0.03em;
-  text-transform: uppercase;
-  padding: 27px 0 27px 0;
+  padding: 63px 24px;
   margin: 0;
+  color: var(--color-label);
+}
+.overlay-port:hover,
+.overlay-port:focus {
+  opacity: 0.5;
 }
 
 /* modal window */
@@ -602,9 +634,9 @@ img {
   height: 30px;
   padding: 0;
   margin: 0;
-  
+
   color: var(--color-logo);
-  background-color: var(--background-general)
+  background-color: var(--background-general);
 }
 .icon-modal {
   width: 11px;
