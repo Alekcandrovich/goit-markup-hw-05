@@ -25,7 +25,7 @@
   --color-shadow-port: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   --color-backdrop: rgba(0, 0, 0, 0.2);
-  --transition-duration: 250ms;
+  --transition-duration: 1250ms;
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -306,23 +306,26 @@ img {
   position: relative;
 }
 .label {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 370px;
   height: 70px;
   background-color: var(--background-label);
   position: absolute;
   bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 .label-text {
   color: var(--color-label);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 27px 0;
+  padding: 0;
   margin: 0;
 }
 
@@ -418,7 +421,7 @@ img {
   border-radius: 4px;
   color: var(--color-border-klient);
 
-  transition: fill var(--transition-timing) var(--transition-duration),
+  transition: color var(--transition-timing) var(--transition-duration),
               border var(--transition-timing) var(--transition-duration); 
 }
 .icon-klient {
@@ -467,12 +470,11 @@ img {
 }
 .social-contact {
   display: flex;
-  gap: 70px;
-  margin: 0;
-  padding: 0;
+  align-items: baseline;
 }
 .footer-contact {
   display: block;
+  margin-right: 70px;
 }
 .social-compound {
   padding-top: 12px;
@@ -635,10 +637,9 @@ img {
   transform: translate(-50%, -50%) scale(0);
 }
 .close-posicion {
-  display: flex;
-  margin: 8px;
-  justify-content: right;
-  list-style: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 .close-modal {
   display: flex;
